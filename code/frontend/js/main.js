@@ -1,6 +1,5 @@
 import {
-    map_initialize,
-    mapbox_map
+    map_initialize
 } from './map.js';
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -20,6 +19,5 @@ function draw_map() {
     map_container.style.height = '300px';
     document.body.appendChild(map_container);
     map_initialize('map');
-    console.log(mapbox_map);
     return;
 }
