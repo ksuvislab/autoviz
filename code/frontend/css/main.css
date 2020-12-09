@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow|Oxygen|Bellota&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Barlow', sans-serif;
+    min-width: 1200px;
+}
