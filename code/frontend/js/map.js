@@ -3,7 +3,7 @@ mapboxgl.access_token = 'pk.eyJ1IjoiZGlnaXRhbGtpIiwiYSI6ImNqNXh1MDdibTA4bTMycnAw
 ////////////////////////////////////////////////////////////////////////////////
 //  Global Variables
 ////////////////////////////////////////////////////////////////////////////////
-mapbox_map = undefined;
+var mapbox_map = undefined;
 
 function map_initialize(container_id) {
     mapbox_map = new mapboxgl.Map({
