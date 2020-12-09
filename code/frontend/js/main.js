@@ -16,8 +16,6 @@ console.log(jQuery);
 function draw_map() {
     let map_container = document.createElement('div');
     map_container.setAttribute('id', 'map');
-    map_container.style.width = '400px';
-    map_container.style.height = '300px';
     document.body.appendChild(map_container);
     // Create map
     map_initialize('map');
