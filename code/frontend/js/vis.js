@@ -95,7 +95,7 @@ export function vis_draw_output(container_id, actual_scores, prediction_scores)
             .append("g");
 
         let rect_width = width / prediction_scores.output.length;
-        let rect_height = height;
+        let rect_height = rect_width;
 
         for(let j = 0; j < prediction_scores.output.length; ++j) {
             //console.log(prediction_scores.output[j]);
@@ -106,6 +106,8 @@ export function vis_draw_output(container_id, actual_scores, prediction_scores)
 
             let bars = svg.append('rect')
                 .attr('class', 'prediction-heatmap')
+                .attr("rx", 4)
+                .attr("ry", 4)
                 .attr('x', j * rect_width)
                 .attr('y', 0)
                 .attr('height', rect_height)
@@ -116,6 +118,9 @@ export function vis_draw_output(container_id, actual_scores, prediction_scores)
             if (actual_scores.output[j] === i)  {
                 bars.attr('stroke', '#d73027');
                 bars.attr('stroke-width', '3px');
+            } else {
+                bars.attr('stroke', '#2A303C');
+                bars.attr('stroke-width', '2px');
             }
         }
     }
