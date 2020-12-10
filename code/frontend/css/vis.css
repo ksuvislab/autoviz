@@ -1,0 +1,51 @@
+#vis {
+    width: calc(100% - 300px);
+    height: calc(100% - 500px);
+    float: left;
+    position: relative;
+    box-sizing: border-box;
+}
+
+#vis-legend {
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    background-color: #222831;
+    padding-left: 100px;
+}
+
+#vis-legend-min, #vis-legend-max  {
+    float: left;
+    width: auto;
+    height: 100%;
+    box-sizing: border-box;
+    color: #eff1f5;
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+#vis-legend-bars {
+    float: left;
+    width: 100px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#vis-legend-actual {
+    width: auto;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 20px;
+    line-height: 40px;
+    float: left;
+    padding-left: 50px;
+    color: #d73027;
+    font-weight: bold;
+}
+
+#vis-output {
+    width: 100%;
+    height: calc(100% - 40px);
+    box-sizing: border-box;
+}

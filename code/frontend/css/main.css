@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Barlow|Oxygen|Bellota&display=swap');
 
-body {
+/* Base 16 Ocean Color Palette
+#eff1f5,#c0c5ce,#2A303C,#222831,#1B1F27,#b48ead,#8fa1b3,#96b5b4
+#a3be8c,#ebcb8b,#bf616a
+*/
+
+html, body {
+    width: 100%;
+    height: 100%;
     margin: 0;
     font-family: 'Barlow', sans-serif;
-    min-width: 1200px;
+    background-color: #2A303C;
+    padding: 0;
+    overflow: hidden;
 }
-
-#map { position: absolute; top: 0; bottom: 0; width: 100%; }
