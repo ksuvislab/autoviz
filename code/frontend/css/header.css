@@ -4,10 +4,10 @@
     height: 60px;
     font-size: 30px;
     line-height: 60px;
-    color: #b48ead;
+    color: #252525;
     top: 0;
     left: 0;
-    background-color: #1B1F27;
+    background-color: #d9d9d9;
     box-sizing: border-box;
     padding: 0px 10px 0px 10px;
     z-index: 1000;
@@ -33,14 +33,14 @@
     box-sizing: border-box;
     float: left;
     font-size: 25px;
-    color: #eff1f5;
+    color: #252525;
 }
 
 #header-city-options {
     font-family: 'Barlow', sans-serif;
     font-size: 25px;
-    color: #ebcb8b;
-    border-bottom: 2px solid #ebcb8b;
+    color: #bf616a;
+    border-bottom: 2px solid #bf616a;
 }
 
 select {

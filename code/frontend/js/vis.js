@@ -19,8 +19,8 @@ export function vis_draw_legend(container_id, prediction_scores)
 
     let min = d3.min(mins);
     let max = d3.max(maxs);
-    $('#vis-legend-min').html(min.toFixed(2) + '&nbsp;&nbsp;');
-    $('#vis-legend-max').html('&nbsp;&nbsp;' + max.toFixed(2));
+    $('#vis-legend-min').html('0' + '&nbsp;&nbsp;');
+    $('#vis-legend-max').html('&nbsp;&nbsp;' + '100%');
 
     let svg = d3.select("#" + container_id)
                 .append("svg")
@@ -28,7 +28,7 @@ export function vis_draw_legend(container_id, prediction_scores)
                 .attr("height", height)
                 .append("g");
 
-    let color_scale = d3.scaleSequential(d3.interpolateGreens)
+    let color_scale = d3.scaleSequential(d3.interpolateYlGnBu)
                 .domain([0, width]);
 
     let bars = svg.selectAll('.bars')
@@ -59,7 +59,7 @@ export function vis_draw_output(container_id, actual_scores, prediction_scores)
 
         let action_sign_image = $('<img/>', {
             alt: '',
-            src: '/autoviz/resources/signs/' + driving_actions[i] + '.png'
+            src: '/resources/signs/' + driving_actions[i] + '.png'
         }).css({
             height: '100%',
             width: sign_height,
@@ -71,7 +71,7 @@ export function vis_draw_output(container_id, actual_scores, prediction_scores)
         }).css({
             height: '100%',
             width: 'calc(100% - ' + sign_height + 'px)',
-            float: 'left'
+            float: 'left',
         });
 
         action_container.append(action_sign_image);
@@ -95,32 +95,37 @@ export function vis_draw_output(container_id, actual_scores, prediction_scores)
             .append("g");
 
         let rect_width = width / prediction_scores.output.length;
-        let rect_height = rect_width;
+        let rect_height = height / 2;
 
         for(let j = 0; j < prediction_scores.output.length; ++j) {
             //console.log(prediction_scores.output[j]);
             let min = d3.min(prediction_scores.output[j]);
             let max = d3.max(prediction_scores.output[j]);
-            let color_scale = d3.scaleSequential(d3.interpolateGreens)
+            let color_scale = d3.scaleSequential(d3.interpolateYlGnBu)
                 .domain([min, max]);
 
             let bars = svg.append('rect')
                 .attr('class', 'prediction-heatmap')
-                .attr("rx", 4)
-                .attr("ry", 4)
+                .attr("rx", 2)
+                .attr("ry", 2)
                 .attr('x', j * rect_width)
-                .attr('y', 0)
+                .attr('y', rect_height /  2)
                 .attr('height', rect_height)
                 .attr('width', rect_width)
                 .style('fill', color_scale(T_prediction_scores[i][j]))
                 .style('cursor', 'pointer');
 
             if (actual_scores.output[j] === i)  {
-                bars.attr('stroke', '#d73027');
-                bars.attr('stroke-width', '3px');
+                if (T_prediction_scores[i][j] !== max) {
+                    bars.attr('stroke', '#ff0000');
+                    bars.attr('stroke-width', '2px');
+                } else {
+                    bars.attr('stroke', '#10ff00');
+                    bars.attr('stroke-width', '2px');
+                }
             } else {
                 bars.attr('stroke', '#2A303C');
-                bars.attr('stroke-width', '2px');
+                bars.attr('stroke-width', '0.5px');
             }
         }
     }

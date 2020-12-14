@@ -8,7 +8,7 @@ export function map_initialize(container_id) {
     mapboxgl.accessToken = access_token;
     map_main = new mapboxgl.Map({
         container: container_id,
-        style: 'mapbox://styles/mapbox/dark-v10',
+        style: 'mapbox://styles/mapbox/light-v10',
         center: [-74.5, 40],
         zoom: 9
     });
@@ -39,7 +39,7 @@ export function map_draw_trajectory(gps_data) {
             'line-cap': 'round'
         },
         paint: {
-            'line-color': '#eff1f5',
+            'line-color': '#252525',
             'line-width': 2,
             'line-opacity': 0.5
         }

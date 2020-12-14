@@ -175,7 +175,9 @@ if __name__ == '__main__':
     features = read_from_tfrecords(filenames)
     speeds = reshape_speeds(features)
 
+    # 108
     len_downsampled = FRAMES_IN_SEG // TEMPORAL_DOWNSAMPLE_FACTOR
+
 
     try:
         turn_int2str = {y: x for x, y in CAR_ACTIONS.iteritems()}
@@ -189,10 +191,13 @@ if __name__ == '__main__':
 
     # Note that the turning heuristic is tuned for 3Hz video and urban area
     # Note also that stop_future_frames is reused for the turn
+    """
     turn = tf.py_func(  turn_future_smooth,
                         [speeds, STOP_FUTURE_FRAMES, naction, SPEED_LIMIT_AS_STOP],
                         [tf.float32])[0]
+
     turn.set_shape([len_downsampled, naction])# Note that the turning heuristic is tuned for 3Hz video and urban area
+    """
     # Note also that stop_future_frames is reused for the turn
     turn = tf.py_func(  turn_future_smooth,
                         [speeds, STOP_FUTURE_FRAMES, naction, SPEED_LIMIT_AS_STOP],
@@ -205,6 +210,10 @@ if __name__ == '__main__':
         # Adding these 2 lines fixed thee hang forever problem
         coord = tf.train.Coordinator()
         threads = tf.train.start_queue_runners(sess=sess, coord=coord)
+
+        speed_list = sess.run(speeds).tolist()
+        print speed_list
+
         # Convert ndarray to list
         actions_list = sess.run(turn).tolist()
         print(actions_list)
