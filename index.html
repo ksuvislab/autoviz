@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css" rel="stylesheet" />
-    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
 
     <link rel="stylesheet" href="./code/frontend/css/main.css" />
@@ -22,6 +22,8 @@
 <body>
     <script type="module" src="./code/frontend/js/map.js"></script>
     <script type="module" src="./code/frontend/js/main.js"></script>
+    <script type="module" src="./code/frontend/js/utils.js"></script>
+    <script type="module" src="./code/frontend/js/vis.js"></script>
 
     <div id="header">
         <div id="header-left">AutoViz</div>
@@ -35,10 +37,24 @@
             </select>
             city
         </div>
+        <div id="header-right">
+            FILTERS
+        </div>
     </div>
 
-    <div id="filter">TRIP FILTERS</div>
-    <div id="map"></div>
+    <div id="main">
+        <div id="map"></div>
+        <div id="vis">
+            <div id="vis-actual">
+                <div id="vis-actual-legend"><i class="fas fa-arrow-down"></i> Actual Directions</div>
+            </div>
+            <div id="vis-predict">
+                <div id="vis-predict-legend"><i class="fas fa-arrow-down"></i> Predict Directions</div>
+            </div>
+        </div>
+    </div>
+
+    <!--
     <div id="vis">
         <div id="vis-legend">
             <div id="vis-legend-min">0</div>
@@ -49,6 +65,8 @@
         </div>
         <div id="vis-output"></div>
     </div>
+    -->
+
 </body>
 
 </html>

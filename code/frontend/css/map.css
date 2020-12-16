@@ -1,9 +1,7 @@
 #map {
-    width: calc(100% - 300px);
-    height: 500px;
+    width: 500px;
+    height: 100%;
     float: left;
-    position: relative;
     box-sizing: border-box;
-    outline: none;
-    border: none;
+    border-right: 2px solid #1B1F27;
 }

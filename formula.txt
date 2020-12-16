@@ -1,0 +1,42 @@
+1. Read TF_Records
+2. Extract speed list() in term of Velocity (Vx, Vy);
+- thresh_low = 0.01746031746 = 1 degree rad
+- thresh_high = 0.6111111111 = 35 degree rad
+- thresh_slight_low = 0.05238095238 = 3 degree rad
+
+first frame action == ['not_sure']
+
+speed_v[i] < 0.3 + 1e - 3 = 0.0182818 --> slow_or_stop
+
+speed to course
+if speed[1] (Vy) = 0
+    Vx > 0 Then Course =  1.5707
+    Vx = 0 Then Course = None
+    Vx < 0 Then  =  4.712388
+---
+Vy = speed *  cos(course)
+Vx  = speed  * sin(course)
+----
+formula
+cos(course) = Vy  / speed
+sin(course) = Vx  / speed
+----
+course = math.atan(Vx / Vy)
+course < 0 --> course  + (2 * pi)
+if Vy  > 0 course = course
+else
+    course = pi + course
+
+straight
+- different angle of current position - previous position > 35 degree
+slow or stop
+- speed vectors < speed  limit (0.0182818)
+- Current car angle or Previous car angle = None (speed[0] = 0)
+- current accuracy (velocity  -  prev velocity / fps) <  -deeceleration threshold
+turn left
+- different angle of current -  prev > -35 degree and < -1 degree
+- turn left slightly if angle >= -3 degree (-3, -2)
+turn right
+- different angle of current -  prev < 35 degree and > 1 degree
+- turn right slightly if angle <= 3 degree (3, 1)
+

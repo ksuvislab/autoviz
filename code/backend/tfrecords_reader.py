@@ -14,7 +14,7 @@ STOP_FUTURE_FRAMES = 2
 # If the speed is less than this, then it's considered to be stopping
 SPEED_LIMIT_AS_STOP = 0.3
 # Turning settings
-NO_SLIGHT_TURN = True
+NO_SLIGHT_TURN = False
 DECELERATION_THRES = -1.0
 FRAME_RATE = 15.0
 N_SUB_FRAME = 108
@@ -75,7 +75,6 @@ def turning_heuristics(speed_list, speed_limit_as_stop = 0):
     enum = CAR_ACTIONS
 
     for i in range(l):
-
         if i == 0:
             action[i] = enum['not_sure']
             continue
@@ -93,6 +92,11 @@ def turning_heuristics(speed_list, speed_limit_as_stop = 0):
             continue
 
         course_diff[i] = diff(course, prev)  *  360 /  (2 * math.pi)
+
+        print('Calculate turning')
+        print(str(thresh_high))
+        print(str(thresh_low))
+        print(str(diff(course, prev)))
 
         if thresh_high  > diff(course, prev)  >  thresh_low:
             if diff(course, prev) > thresh_slight_low:
