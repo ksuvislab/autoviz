@@ -32,7 +32,7 @@ export function utils_generate_actual_tree(trip, actual_data) {
         let child = {
             'name': CAR_ACTIONS[action],
             'parent': 'null',
-            'photo': 'autoviz/resources/signs/' + CAR_ACTIONS[action] + '.png',
+            'photo': 'resources/signs/' + CAR_ACTIONS[action] + '.png',
             'size': parseInt(count),
             'children': []
         }
@@ -47,7 +47,7 @@ export function utils_generate_actual_tree(trip, actual_data) {
                 'parent': CAR_ACTIONS[action],
                 'size': 1,
                 'location': locations[trip_index],
-                'photo': 'autoviz/resources/signs/' + CAR_ACTIONS[action] + '.png',
+                'photo': 'resources/signs/' + CAR_ACTIONS[action] + '.png',
             });
 
             ++index;
