@@ -63,7 +63,7 @@ export function vis_draw_output(container_id, actual_scores, prediction_scores)
 
         let action_sign_image = $('<img/>', {
             alt: '',
-            src: '/resources/signs/' + driving_actions[i] + '.png'
+            src: 'autoviz/resources/signs/' + driving_actions[i] + '.png'
         }).css({
             height: '100%',
             width: sign_height,
