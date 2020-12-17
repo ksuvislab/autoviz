@@ -14,9 +14,9 @@ import {
     utils_generate_predict_tree
 } from './utils.js';
 
-var info_file = 'autoviz/data/info/0000f77c-6257be58.json';
-var action_actual_file = 'autoviz/data/action_actual/0000f77c-6257be58.json';
-var action_predict_file = 'autoviz/data/action_predict/0000f77c-6257be58.json';
+var info_file = '/data/info/0000f77c-6257be58.json';
+var action_actual_file = '/data/action_actual/0000f77c-6257be58.json';
+var action_predict_file = '/data/action_predict/0000f77c-6257be58.json';
 
 map_initialize('map');
 map_main.on('load', function() {
